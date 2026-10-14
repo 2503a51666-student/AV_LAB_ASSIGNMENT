@@ -1,14 +1,10 @@
-
 import pandas as pd
 import plotly.express as px
 
-# Load the Excel dataset
 df = pd.read_excel(
     "Library_Management_System-Dataset.xlsx",
     sheet_name="Books"
 )
-
-# Display the first five rows
 print(df.head())
 
 # Create a histogram
@@ -18,8 +14,6 @@ fig1 = px.histogram(
     title="Distribution of Total Book Copies",
     labels={"Total_Copies": "Total Copies"}
 )
-
-# Customize the histogram
 fig1.update_traces(
     xbins=dict(start=0, end=400, size=25)
 )
@@ -32,8 +26,6 @@ fig1.update_layout(
         dtick=50
     )
 )
-
-# Display the plot
 fig1.show()
 
 
@@ -52,14 +44,10 @@ fig2 = px.scatter(
     },
     hover_data=["Category"]
 )
-
-# Customize the plot
 fig2.update_layout(
     xaxis_title="Total Copies",
     yaxis_title="Issued Copies"
 )
-
-# Display the plot
 fig2.show()
 
 
@@ -77,15 +65,11 @@ fig3 = px.box(
     },
     points="outliers"
 )
-
-# Customize the plot
 fig3.update_layout(
     xaxis_title="Book Category",
     yaxis_title="Issued Copies",
     showlegend=False
 )
-
-# Display the plot
 fig3.show()
 
 
@@ -103,13 +87,9 @@ fig4 = px.violin(
     box=True,
     points="outliers"
 )
-
-# Customize the plot
 fig4.update_layout(
     xaxis_title="Book Category",
     yaxis_title="Total Copies",
     showlegend=False
 )
-
-# Display the plot
 fig4.show()
